@@ -1,6 +1,7 @@
 package uk.co.jemos.podam.test.unit;
 
 import junit.framework.Assert;
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import uk.co.jemos.podam.api.PodamFactory;
@@ -47,5 +48,8 @@ public class MemoizationTest {
 		Assert.assertTrue(pojo == pojo.getParent());
 	}
 
-
+    @After
+    public void tearDown() throws Exception {
+        strategy.setMemoizationEnabled(false); // clean for next tests, because strategy is singleton
+    }
 }
